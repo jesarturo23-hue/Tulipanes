@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Tu Ramo Especial ❤️</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: radial-gradient(circle at center, #1e293b 0%, #0d1117 100%);
+            font-family: 'Segoe UI', sans-serif;
+            overflow: hidden;
+        }
+
+        .leaf-particle {
+            position: absolute;
+            background-color: #ef4444;
+            border-radius: 50% 0 50% 0;
+            opacity: 0.1;
+            filter: blur(1px);
+            z-index: 0;
+            animation: float-particle 12s linear infinite;
+        }
+
+        @keyframes float-particle {
+            0% { transform: translateY(110vh) rotate(0deg); opacity: 0; }
+            20% { opacity: 0.3; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        }
+
+        .card {
+            background-color: #fffaf0;
+            width: 85%;
+            max-width: 360px;
+            padding: 30px 25px;
+            border-radius: 35px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: filter 0.5s ease;
+        }
+
+        .blur-effect {
+            filter: blur(8px);
+            pointer-events: none;
+        }
+
+        h1 {
+            font-family: 'Caveat', cursive;
+            color: #b91c1c;
+            font-size: 2.1rem;
+            margin: 0;
+        }
+
+        .heart {
+            font-size: 1.5rem;
+            display: inline-block;
+            margin: 5px 0 10px 0;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .bouquet-container {
+            width: 100%;
+            margin: 0 auto;
+            filter: drop-shadow(0 15px 12px rgba(0,0,0,0.4));
+            animation: sway 5s ease-in-out infinite;
+            transform-origin: bottom center;
+        }
+
+        @keyframes sway {
+            0%, 100% { transform: rotate(-2deg); }
+            50% { transform: rotate(2deg); }
+        }
+
+        .open-letter-btn {
+            background: none;
+            border: none;
+            font-size: 2.5rem;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: transform 0.3s ease;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .letter-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .letter-content {
+            background: #fff;
+            width: 80%;
+            max-width: 320px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            font-family: 'Caveat', cursive;
+            font-size: 1.5rem;
+            line-height: 1.4;
+            color: #333;
+            text-align: left;
+            position: relative;
+            transform: translateY(20px);
+            transition: transform 0.4s ease;
+        }
+
+        .letter-content::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: repeating-linear-gradient(#fff 0px, #fff 24px, #e5e5e5 25px);
+            z-index: -1;
+            border-radius: 15px;
+        }
+
+        .close-btn {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #ef4444;
+            text-decoration: none;
+            font-weight: bold;
+            font-family: sans-serif;
+            font-size: 0.9rem;
+        }
+
+        svg { width: 100%; height: auto; }
+    </style>
+</head>
+<body>
+
+    <div class="leaf-particle" style="left: 5%; animation-duration: 10s;"></div>
+    <div class="leaf-particle" style="left: 90%; animation-duration: 14s;"></div>
+
+    <div class="card" id="mainCard">
+        <h1>Un Ramo de Tulipanes para Ti</h1>
+        <div class="heart">❤️</div>
+
+        <div class="bouquet-container">
+            <svg viewBox="0 0 200 250" xmlns="http://www.w3.org/2000/svg">
+                <path d="M30,110 L10,35 L100,10 L190,35 L170,110 L100,240 Z" fill="#111827" />
+                <path d="M25,90 L100,20 L175,90 L100,215 Z" fill="#1f2937" opacity="0.9" />
+                
+                <defs>
+                    <linearGradient id="gradTulip" x1="0%" y1="100%" x2="0%" y2="0%">
+                        <stop offset="0%" style="stop-color:#991b1b;stop-opacity:1" />
+                        <stop offset="60%" style="stop-color:#ef4444;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#f87171;stop-opacity:1" />
+                    </linearGradient>
+
+                    <linearGradient id="gradLeaf" x1="0%" y1="100%" x2="0%" y2="0%">
+                        <stop offset="0%" style="stop-color:#14532d;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#4ade80;stop-opacity:1" />
+                    </linearGradient>
+
+                    <g id="tulip-deluxe">
+                        <path d="M0,0 Q1,35 0,75" stroke="#3f6212" stroke-width="3" fill="none" stroke-linecap="round"/>
+                        <path d="M0,65 Q-25,50 -12,20 Q-5,45 0,65" fill="url(#gradLeaf)" stroke="#064e3b" stroke-width="0.8" />
+                        <path d="M0,60 Q25,45 12,15 Q5,40 0,60" fill="#166534" stroke="#064e3b" stroke-width="0.8" />
+                        
+                        <g transform="translate(0, -5)">
+                            <path d="M-8,-2 C-18,-25 -2,-32 0,-15 C0,-5 -8,-2 -8,-2" fill="#b91c1c" stroke="#450a0a" stroke-width="1"/>
+                            <path d="M8,-2 C18,-25 2,-32 0,-15 C0,-5 8,-2 8,-2" fill="#b91c1c" stroke="#450a0a" stroke-width="1"/>
+                            <path d="M-9,0 C-11,-28 11,-28 9,0 C5,6 -5,6 -9,0" fill="url(#gradTulip)" stroke="#450a0a" stroke-width="1.2"/>
+                            <path d="M-4,-15 Q0,-22 4,-15" fill="none" stroke="white" stroke-width="0.5" opacity="0.4" />
+                        </g>
+                    </g>
+                </defs>
+
+                <g>
+                    <use href="#tulip-deluxe" x="55" y="110" transform="rotate(-15 55 110) scale(0.85)" />
+                    <use href="#tulip-deluxe" x="145" y="110" transform="rotate(15 145 110) scale(0.85)" />
+                    <use href="#tulip-deluxe" x="100" y="85" transform="scale(1.1)" />
+                    <use href="#tulip-deluxe" x="75" y="135" transform="rotate(-5 75 135) scale(0.95)" />
+                    <use href="#tulip-deluxe" x="125" y="135" transform="rotate(5 125 135) scale(0.95)" />
+                    <use href="#tulip-deluxe" x="100" y="150" transform="scale(0.9)" />
+                </g>
+
+                <path d="M30,125 Q10,180 100,240 Q190,180 170,125 L145,155 L55,155 Z" fill="#111827" />
+                
+                <g fill="#ef4444" stroke="#b91c1c" stroke-width="1.2">
+                    <ellipse cx="82" cy="195" rx="18" ry="12" transform="rotate(-25 82 195)" />
+                    <ellipse cx="118" cy="195" rx="18" ry="12" transform="rotate(25 118 195)" />
+                    <circle cx="100" cy="198" r="8" />
+                    <path d="M92,205 L75,225" stroke-width="3" />
+                    <path d="M108,205 L125,225" stroke-width="3" />
+                    <circle cx="98" cy="186" r="2" fill="white" opacity="0.3" />
+                </g>
+            </svg>
+        </div>
+
+        <button class="open-letter-btn" onclick="toggleLetter(true)">📩</button>
+    </div>
+
+    <div class="letter-overlay" id="letterOverlay" onclick="toggleLetter(false)">
+        <div class="letter-content" onclick="event.stopPropagation()">
+            <p>Hola Joys.</p>
+            <p>Como estas? Espero que bien, vaya pues mira hay tanto que decirte y tan poco espacio</p>
+            <p>Solo espero que este detalle te demuestre lo importante que eres y el cariño que te tengo
+              espero que cada vez nos vayamos conociendo mas y conectando mas, eres una amistad como ninguna.</p>
+            <p>Con cariño, yo.🌷</p>
+            <a href="#" class="close-btn" onclick="toggleLetter(false)">Cerrar carta</a>
+        </div>
+    </div>
+
+    <script>
+        function toggleLetter(show) {
+            const overlay = document.getElementById('letterOverlay');
+            const card = document.getElementById('mainCard');
+            if (show) {
+                overlay.style.display = 'flex';
+                setTimeout(() => {
+                    overlay.style.opacity = '1';
+                    overlay.querySelector('.letter-content').style.transform = 'translateY(0)';
+                    card.classList.add('blur-effect');
+                }, 10);
+            } else {
+                overlay.style.opacity = '0';
+                overlay.querySelector('.letter-content').style.transform = 'translateY(20px)';
+                card.classList.remove('blur-effect');
+                setTimeout(() => {
+                    overlay.style.display = 'none';
+                }, 400);
+            }
+        }
+    </script>
+</body>
+</html>
